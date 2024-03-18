@@ -3,9 +3,9 @@ import banner from '../../img/banner.svg'
 
 const Carousel = () => {
     return (
-        <div>
+        <section id='carousel-item'>
             <img id='banner-style' src={banner} alt="banner" />
-        </div>
+        </section>
     );
 }
 

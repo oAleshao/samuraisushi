@@ -8,7 +8,7 @@ const BeveragesPage = () => {
         <div id='beverages-page-style'>
             <div></div>
             <div className='all-items-style '>
-                {beverages_list.map((item) => (<ProductItem {...item} key={item.id}></ProductItem>))}
+                {beverages_list.map((item) => (<ProductItem {...item} item={item} key={item.id}></ProductItem>))}
             </div>
         </div>
     );

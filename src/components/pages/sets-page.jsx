@@ -7,7 +7,7 @@ const SetsPage = () => {
         <div id='sets-page-style'>
             <div></div>
             <div className='all-items-style '>
-                {sets_list.map((item) => (<ProductItem {...item} isFood={true} key={item.id}></ProductItem>))}
+                {sets_list.map((item) => (<ProductItem {...item} item={item} isFood={true} key={item.id}></ProductItem>))}
             </div>
         </div>
     );

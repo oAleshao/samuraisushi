@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductItem from '../body-element/product-item';
 import { sushi_list } from '../../all-products-list/temp-product-list.js';
+import Footer from '../body-element/footer.jsx';
 
 const SushiPage = () => {
 
@@ -10,7 +11,7 @@ const SushiPage = () => {
         <div id='sushi-page-style'>
             <div></div>
             <div className='all-items-style '>
-                {sushi_list.map((item) => (<ProductItem {...item} isFood={true} key={item.id}></ProductItem>))}
+                {sushi_list.map((item) => (<ProductItem {...item} item={item} isFood={true} key={item.id}></ProductItem>))}
             </div>
         </div>
     );

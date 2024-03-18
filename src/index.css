@@ -7,14 +7,27 @@ body {
   background-color: rgb(90, 5, 5);
 }
 
+body::-webkit-scrollbar {
+  background-color: rgb(49, 49, 49);
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(91, 91, 91);
+  width: 10px;
+}
+
+
 #header {
-  position: fixed;
   width: 100%;
   height: 100px;
+  position: fixed;
+  top: 0;
   background: rgb(20, 20, 20);
   align-items: center;
   display: flex;
   justify-content: space-between;
+  z-index: 10;
 }
 
 #logo-box {
@@ -69,6 +82,7 @@ body {
 #right-content-header-box {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 10px;
 }
 
 #signin-box {
@@ -95,12 +109,23 @@ body {
   margin-right: 20px;
   display: flex;
   color: white;
+  position: relative;
   transition: 0.1s;
 }
 
-#cart-box p {
-  font-size: 18px;
-  padding-inline: 10px;
+.count-items-cart {
+  position: absolute;
+  top: 3px;
+  left: -7px;
+  background-color: rgba(106, 5, 5, 0.9);
+  padding-inline: 5px;
+  padding-block: 2px;
+  border-radius: 10px;
+}
+
+.count-items-cart p {
+  margin: 0px;
+  font-size: 14px;
 }
 
 #cart-icon-style {
@@ -114,80 +139,120 @@ body {
   color: rgb(157, 157, 157);
 }
 
+/* ////////////  body        ////////////// */
+
 #main-box {
-  position: absolute;
-  z-index: -1;
-  left: 250px;
-  top: 95px;
-  width: 84.2%;
+  margin-top: 94px;
+  width: 100%;
+  height: 100vh;
+  padding: 0px;
+  overflow: auto;
+}
+
+#main-box::-webkit-scrollbar {
+  border: none;
+  background-color: transparent;
+  width: 0px;
+}
+
+
+/* /////// LEFT MENU /////// */
+#left-menu-body {
+  position: fixed;
+  width: 250px;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  padding-top: 100px;
+  z-index: 0;
+  background-color: rgb(106, 5, 5);
+  box-shadow: 5px 0px 10px 2px;
+}
+
+.link-style-menu {
+  display: flex;
+  border-bottom: 0.4px solid rgb(20, 20, 20);
+}
+
+.link-style-menu {
+  background-color: rgb(106, 5, 5);
+  display: flex;
+}
+
+.link-style-menu:hover {
+  background-color: rgb(163, 87, 17);
+}
+
+.link-style-menu img {
+  height: 50px;
+  padding: 10px 0px 10px 20px;
+}
+
+.link-style-menu img {
+  height: 45px;
+  padding: 10px 0px 10px 20px;
+}
+
+.item-style-menu {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+/* //////// MAIN PAGE //////////// */
+#main-page {
+  padding-left: 250px;
+  padding-top: 0px;
+  padding-bottom: 10px;
 }
 
 #carousel-item {
   width: 100%;
 }
 
-#banner-style {
+#carousel-item img {
   width: 100%;
 }
 
 
+/* //////////////////  ITEM PRODUCT //////////////////// */
 
-#left-menu-body {
-  position: fixed;
-  top: 100px;
-  width: 250px;
-  background: rgb(106, 5, 5);
-  /* background-color: rgb(91, 19, 3); */
-  height: 88vh;
-  box-shadow: 5px 0px 12px -2px;
+#soups-page-style,
+#beverages-page-style,
+#sushi-page-style,
+#sets-page-style,
+#others-page-style {
+  padding-bottom: 10px;
 }
-
-.link-style-menu {
-  padding: 12px;
-  display: flex;
-  border-bottom: 0.4px solid rgb(20, 20, 20);
-}
-
-.link-style-menu:hover {
-  background-color: rgb(163, 87, 17);
-  display: flex;
-}
-
-.link-style-menu img {
-  width: 45px;
-  margin-left: 15px;
-}
-
-.item-style-menu {
-  color: white;
-  text-decoration: none;
-  font-size: 20px;
-  padding-block: 10px;
-  padding-left: 30px;
-}
-
-#sushi-page-style {
-  z-index: -1;
-  width: 100%;
-}
-
-#sushi-page-style h1 {
-  margin: 0;
-}
-
 
 .all-items-style {
-  width: 98%;
-  margin-inline: auto;
+  padding-left: 10px;
   display: flex;
-  justify-content: start;
   flex-wrap: wrap;
+}
+
+.myliner {
+  padding-bottom: 10px;
+  width: 90%;
+  margin-inline: auto;
+  border-bottom: 2px solid rgb(20, 20, 20);
+}
+
+.style-title-offers {
+  margin: 0px;
+  color: white;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  padding: 15px 0px 0px 35px;
 }
 
 .product-item-style {
   background: rgb(24, 24, 24);
   position: relative;
-  z-index: 10;
+  z-index: 1;
   width: 240px;
   height: auto;
   border-radius: 10px;
@@ -231,10 +296,6 @@ body {
 .product-item-style button:hover {
   background: rgba(163, 88, 17, 0.62);
   transition: 0.05s;
-}
-
-#sushi-page-style {
-  text-align: center;
 }
 
 .discount-style-box {
@@ -339,4 +400,210 @@ body {
 #price-discount {
   color: rgb(255, 0, 0);
   margin-right: 5px;
+}
+
+#footer {
+  position: absolute;
+  bottom: -1;
+  width: 100%;
+  height: 130px;
+  background: rgb(20, 20, 20);
+  display: flex;
+}
+
+#footer section {
+  flex-basis: 25%;
+}
+
+
+.main-part-footer h1,
+h2 {
+  color: white;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding-left: 40px;
+}
+
+.main-part-footer h1 {
+  font-size: 24px;
+  padding-top: 40px;
+}
+
+.main-part-footer h2 {
+  font-size: 16px;
+}
+
+.link-part-footer ul {
+  padding-top: 20px;
+  padding-left: 80px;
+}
+
+.link-part-footer ul li {
+  list-style: none;
+  color: white;
+}
+
+.link-part-footer ul li a {
+  text-decoration: none;
+  color: white
+}
+
+
+.social-media-footer ul {
+  display: flex;
+  justify-content: right;
+  list-style: none;
+  padding: 15px 50px 0px 0px;
+}
+
+.social-media-footer ul li {
+  margin: 10px;
+}
+
+.social-media-footer ul li a img {
+  height: 35px;
+}
+
+#cart-body {
+  position: absolute;
+  top: 100px;
+  right: 0px;
+  border-radius: 2px 0px 0px 0px;
+  background-color: rgb(106, 5, 5);
+  width: 400px;
+  height: 88vh;
+  box-shadow: -4px 4px 7px 5px;
+  transition: all 0.4s ease;
+}
+
+.activeCart {
+  width: 0px;
+}
+
+.h1-style {
+  color: white;
+  margin: 0;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+.all-items-cart {
+  width: 350px;
+  height: 68vh;
+  margin-inline: auto;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+
+.all-items-cart::-webkit-scrollbar {
+  background-color: rgb(49, 49, 49);
+  width: 10px;
+}
+
+.all-items-cart::-webkit-scrollbar-thumb {
+  background-color: rgb(91, 91, 91);
+  width: 10px;
+}
+
+.confirm-box-cart {
+  width: 290px;
+  height: 70px;
+  margin-inline: auto;
+}
+
+.cart-item-style {
+  display: flex;
+  margin: 2px;
+  height: 100px;
+  background-color: rgb(20, 20, 20);
+  border-radius: 10px;
+}
+
+.img-item-cart {
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  padding: 7px 0px 0px 5px;
+}
+
+.img-item-cart img {
+  width: 85px;
+  height: 85px;
+}
+
+.about-item-cart {
+  flex-basis: 70%;
+  height: 85dpx;
+}
+
+
+.title-item-cart h1 {
+  color: white;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  margin: 0px;
+  padding-top: 12px;
+  padding-inline: 10px;
+}
+
+.counter-item-cart {
+  height: 50px;
+  display: flex;
+}
+
+.buttons-item-cart {
+  flex-basis: 50%;
+  display: flex;
+  padding-top: 4px;
+  padding-left: 10px;
+  height: 30px;
+}
+
+.buttons-item-cart button {
+  border: none;
+  height: 20px;
+  background-color: transparent;
+  color: white;
+  font-size: 24px;
+}
+
+.buttons-item-cart p {
+  margin: 0px;
+  color: white;
+  font-size: 20px;
+}
+
+.price-item-cart {
+  flex-basis: 50%;
+}
+
+.price-item-cart p {
+  color: white;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  text-align: right;
+  padding-top: 4px;
+  padding-right: 15px;
+  margin: 0px;
+}
+
+.weight-box-cart-style {
+  display: flex;
+  color: white;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+}
+
+.weight-box-cart-style p {
+  margin: 0px;
+  padding-left: 10px;
+}
+
+.weight-box-cart-style p:nth-child(2) {
+  padding-left: 0px;
 }

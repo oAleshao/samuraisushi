@@ -7,7 +7,7 @@ const OtherPage = () => {
         <div id='others-page-style'>
             <div></div>
             <div className='all-items-style '>
-                {other_list.map((item) => (<ProductItem {...item} key={item.id}></ProductItem>))}
+                {other_list.map((item) => (<ProductItem {...item} item={item} key={item.id}></ProductItem>))}
             </div>
         </div>
     );

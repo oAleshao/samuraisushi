@@ -1,15 +1,14 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import sushi from '../../img/sushi.png'
 import sets from '../../img/sushi (1).png'
 import drinks from '../../img/soda.png'
 import other from '../../img/chopstick.png'
 import soup from '../../img/ramen.png'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { togglePage } from '../../slices/OpenPageSlice'
 
 const LeftMenu = () => {
-    const openPage = useSelector(state => state.openPage)
     const dispatch = useDispatch();
 
 
