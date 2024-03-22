@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
-  background-color: rgb(90, 5, 5);
+  background-color: rgb(234, 234, 234);
 }
 
 body::-webkit-scrollbar {
@@ -166,7 +166,11 @@ body::-webkit-scrollbar-thumb {
   padding-top: 100px;
   z-index: 0;
   background-color: rgb(106, 5, 5);
-  box-shadow: 5px 0px 10px 2px;
+  box-shadow: 5px 0px 10px 2px #0000009d;
+}
+
+.link-style-menu.activePage {
+  background-color: rgb(101, 54, 10);
 }
 
 .link-style-menu {
@@ -219,6 +223,22 @@ body::-webkit-scrollbar-thumb {
 
 /* //////////////////  ITEM PRODUCT //////////////////// */
 
+.filter-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-box h2 {
+  color: black;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  padding-top: 16px;
+}
+
+.all-filter-buttons {}
+
+
 #soups-page-style,
 #beverages-page-style,
 #sushi-page-style,
@@ -242,7 +262,7 @@ body::-webkit-scrollbar-thumb {
 
 .style-title-offers {
   margin: 0px;
-  color: white;
+  color: rgb(20, 20, 20);
   font-family: "Madimi One", sans-serif;
   font-weight: 400;
   font-size: 26px;
@@ -259,7 +279,11 @@ body::-webkit-scrollbar-thumb {
   margin-top: 15px;
   margin-left: 20px;
   text-align: center;
+  border: 0.5px solid black;
+  box-shadow: 0px 0px 2px 2px #00000069;
+  transition: 0.3s all ease;
 }
+
 
 .style-image-item {
   overflow: hidden;
@@ -269,6 +293,7 @@ body::-webkit-scrollbar-thumb {
 .product-item-style img {
   width: 250px;
   height: 210px;
+  object-fit: cover;
 }
 
 .product-item-style h1 {
@@ -471,14 +496,14 @@ h2 {
   right: 0px;
   border-radius: 2px 0px 0px 0px;
   background-color: rgb(106, 5, 5);
-  width: 400px;
+  width: 0px;
   height: 88vh;
-  box-shadow: -4px 4px 7px 5px;
   transition: all 0.4s ease;
 }
 
-.activeCart {
-  width: 0px;
+#cart-body.activeCart {
+  width: 400px;
+  box-shadow: -4px 4px 5px 1px #0000007b;
 }
 
 .h1-style {
@@ -496,6 +521,10 @@ h2 {
   margin-inline: auto;
   margin-top: 10px;
   overflow: auto;
+  min-width: 0px;
+  max-width: 350px;
+  transition: all 0.4s ease;
+
 }
 
 
@@ -509,18 +538,14 @@ h2 {
   width: 10px;
 }
 
-.confirm-box-cart {
-  width: 290px;
-  height: 70px;
-  margin-inline: auto;
-}
-
 .cart-item-style {
+  position: relative;
   display: flex;
   margin: 2px;
   height: 100px;
   background-color: rgb(20, 20, 20);
   border-radius: 10px;
+  min-width: 0px;
 }
 
 .img-item-cart {
@@ -567,9 +592,14 @@ h2 {
 .buttons-item-cart button {
   border: none;
   height: 20px;
+  padding-top: 0px;
   background-color: transparent;
   color: white;
   font-size: 24px;
+}
+
+.buttons-item-cart button:hover {
+  opacity: 0.4;
 }
 
 .buttons-item-cart p {
@@ -606,4 +636,187 @@ h2 {
 
 .weight-box-cart-style p:nth-child(2) {
   padding-left: 0px;
+}
+
+.remove-from-cart {
+  position: absolute;
+  color: white;
+  right: 10px;
+  top: 5px;
+}
+
+#remove-btn {
+  width: 20px;
+}
+
+#remove-btn:hover {
+  opacity: 0.7;
+}
+
+.confirm-box-cart {
+  width: 300px;
+  height: 70px;
+  margin-inline: auto;
+  margin-block: 10px;
+}
+
+#confirm-box-srtyle {
+  border: 1px solid rgb(20, 20, 20);
+  background: rgb(20, 20, 20);
+  border-radius: 10px;
+  width: 300px;
+  height: 50px;
+  transition: all 0.3s ease-out;
+}
+
+#confirm-box-srtyle:hover {
+  border: 1px solid white;
+}
+
+#confirm-box-srtyle:active {
+  background-color: rgb(48, 48, 48);
+  transition: 0.3s;
+}
+
+#confirm-box-srtyle h1 {
+  color: white;
+  margin: 0px;
+  font-size: 18px;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+}
+
+
+/* ////////// Filter Box /////////// */
+
+.all-filter-buttons {
+  width: 150px;
+  padding: 20px 40px 0px 0px;
+  display: flex;
+  justify-content: end;
+  position: relative;
+}
+
+.all-filter-buttons h2 {
+  margin: 0px;
+  padding: 3px 15px 0px 0px;
+  font-size: 20px;
+}
+
+#filterIcon {
+  font-size: 35px;
+}
+
+.activeFilter {
+  display: none;
+
+}
+
+.filter-body {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  background-color: rgb(20, 20, 20);
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 8;
+  width: 250px;
+  height: 300px;
+  box-shadow: 0px 0px 7px 5px #64646425;
+}
+
+.filter-body div {
+  margin: 10px;
+}
+
+.filter-body h2 {
+  color: white;
+  padding: 10px 0px 0px 10px;
+}
+
+
+.price-filter-box section {
+  display: flex;
+}
+
+#range-max-price {
+  margin: 0px 0px 0px 5px;
+}
+
+#helper-range {
+  margin-block: 5px;
+  margin-inline: 15px;
+  width: 50px;
+}
+
+
+.price-filter-box section p {
+  color: white;
+  font-size: 20px;
+  padding: 10px 0px 0px 5px;
+  margin: 0px;
+}
+
+.checkbox-box {
+  padding-top: 10px;
+}
+
+.checkbox-box span {
+  color: white;
+  padding-left: 15px;
+  font-size: 18px;
+
+}
+
+.btn-remove-filter {
+  text-align: right;
+}
+
+.hr-filter {
+  width: 90%;
+}
+
+.btn-remove-filter button {
+  border: 0.5px solid black;
+  background-color: white;
+  height: 25px;
+  font-size: 14px;
+  border-radius: 10px;
+  padding-inline: 10px;
+  margin-top: 10px;
+}
+
+.btn-remove-filter button:nth-child(1) {
+  margin-right: 15px;
+}
+
+.btn-remove-filter button:hover {
+  opacity: 0.8;
+}
+
+.btn-remove-filter button:active {
+  box-shadow: 0px 0px 6px 2px #ffffff69;
+}
+
+#make-order {
+  position: absolute;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.613);
+  top: -100px;
+  height: 127vh;
+  width: 100%;
+}
+
+#close-make-order {
+  position: fixed;
+  color: white;
+  font-size: 30px;
+  right: 30px;
+  top: 20px;
+  background-color: black;
+  border-radius: 10px;
+}
+
+#close-make-order:hover {
+  opacity: 0.8;
 }

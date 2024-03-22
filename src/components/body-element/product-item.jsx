@@ -38,8 +38,10 @@ const ProductItem = ({ id, name, img, price, discount, weight, pcs, contains, is
             <h2 id='price-discount'>{(price - price * discount / 100).toFixed(1)}</h2><h2 id='help-dollar'>$</h2>
         </div> : <h2>{price} $</h2>
 
-    const weightBox = <div className='weight-box-style'>
+    const weightBox = pcs !== 0 ? <div className='weight-box-style'>
         <p>{pcs}pcs/</p><p>{weight}</p>
+    </div> : <div className='weight-box-style'>
+        <p>{weight}</p>
     </div>
 
     return (
@@ -53,7 +55,7 @@ const ProductItem = ({ id, name, img, price, discount, weight, pcs, contains, is
             <div className='style-image-item'>
                 <img src={img} alt={name} />
             </div>
-            <h1>{name.length < 20 ? name : name.slice(0, 20) + '...'}</h1>
+            <h1>{name.length < 15 ? name : name.slice(0, 15) + '...'}</h1>
             <div className='more-info-item-style'>
                 {weightBox}
                 {priceBox}

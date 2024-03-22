@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { act } from "react-dom/test-utils";
+
 
 const initialState = {
     isOpen: false,
+    openPage: ''
 }
 
 export const OpenPageSlice = createSlice({
@@ -11,9 +12,13 @@ export const OpenPageSlice = createSlice({
     reducers: {
         togglePage: (state, action) => {
             state.isOpen = action.payload;
+        },
+        setOpenPage: (state, action) => {
+            state.openPage = action.payload;
         }
+
     }
 });
 
-export const { togglePage } = OpenPageSlice.actions;
+export const { togglePage, setOpenPage } = OpenPageSlice.actions;
 export default OpenPageSlice.reducer;
